@@ -1,0 +1,61 @@
+// singelton
+// agar hum literals ka trah declare karta ha tu singelton nhi banta
+// constructor use huga tu literals 
+
+// object literals
+//{}---> isi ku object bolta
+// isma key aur value ka concept lagta ha
+//                              asked ques
+// //array typical
+// myArray = ["h","i"]
+// console.log(myArray[1])
+
+
+
+const mySym = Symbol("key1") // symbol lu object ka key ma add karke print karke dikh du
+
+const Jsuser = {
+    name: "hitesh",
+    "full name": "ujjwal roy", // yoou can't access these by dot but can be []
+    [mySym]: "myKey1", // symbol
+    age: 18,
+    location: "jaipur",
+    email: "ujjwal@google.com",
+    isLoggedIn: false,
+    lastLogindays: ["monday", "saturday"],
+
+}
+
+//how to access objects
+console.log(Jsuser.email)//. dot ki taarah deta ha tu automattically string ki tarah leta ha
+console.log(Jsuser["email"])//[] isma hame explicitly dena huta ha
+console.log(Jsuser["full name"])
+//console.log(Jsuser.mySym)// huta ha par string ki tarah print karta ha
+//console.log(typeof Jsuser.mySym) // ya batega ki string data type ha
+// agar symbol ki tarah karna ha tu [] <--- key side ma rakhna
+// ex  [mySym]: "myKey1",
+console.log(Jsuser[mySym])
+
+Jsuser.email = "ujjwal@email.com"
+console.log(Jsuser.email)
+// if we want someone to not change value we can use free
+//Object.freeze(Jsuser)
+Jsuser.email = "ujjwal@micro.com"
+console.log(Jsuser);
+
+
+//************************function***************** */
+// funtion ku ap simple variable ki tarah treat kar sakta haa
+// these are first class citizen
+Jsuser.greeting = function() {
+    console.log("Hello JS User");
+}
+
+Jsuser.greetingTwo = function() {
+    console.log("Hello JS User, ${this.name}");
+}
+console.log(Jsuser.greeting());
+console.log(Jsuser.greetingTwo());
+console.log(Jsuser.greeting);
+
+
